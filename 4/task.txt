@@ -1,0 +1,6 @@
+4) Реализуйте, на выбор, один из методов массива: map, sort, filter. Пример работы:
+
+[].myMap((item, index, arr) => {});
+[].myFilter((item, index, arr) => {});
+[].mySort((a, b) => {});
+[].mySort();
