@@ -4,8 +4,17 @@ const asyncTimeout = (timeout) => new Promise(res => {
     },timeout);
 });
 
+/*
+* FIXME как-то ты перемудрил. Задача элементарно решается через цикл for/of.
+*  Либо на худой конец через рекурсию.
+*   Подсказка: функцию и так возвращает промис, можно сделать ее async
+*  */
 function promiseStack(arr) {
     return new Promise((res, rej) => {
+      /*
+      * FIXME index - плохое название. За что отвечает эта переменная — не понятно.
+      *   Что бы понять нужно погрузиться в логику кода ниже
+      *  */
       let index = 0;
   
       const executeNext = () => {

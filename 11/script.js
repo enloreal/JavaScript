@@ -1,3 +1,4 @@
+// FIXME На основе прошлой задачи проведи рефакторинг самостоятельно
 const asyncTimeout = (timeout) => new Promise(res => {
     setTimeout(() => {
         res();

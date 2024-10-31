@@ -73,14 +73,20 @@ function findNode(tree, target) {
         return tree.node
     }
 
+    // FIXME for/of
     for (let i = 0; i < tree.children.length; i++) {
         const result = findNode(tree.children[i], target);
-        if (result != -1){
+        /*
+        * FIXME между логическими блоками оставляй пустую строку.
+        *  Это улучшает читаемость кода
+        *  */
+        if (result != -1) {
             return result;
         }
     }
-
+// FIXME снова форматирование поехало
 return -1;
 }
 
-console.log(findNode(tree, 25));
+// FIXME Функция должна вернуть узел, а возвращает значения узла
+console.log(findNode(tree, 14));

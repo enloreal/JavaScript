@@ -1,18 +1,29 @@
+// FIXME добавь еще метод values в MySet
 class MySet {
     constructor(initialArray) {
       if (!Array.isArray(initialArray)) {
           throw new TypeError(("MySet only accepts an array as input."));
-        
+        // FIXME лишняя пустая строка
       }
+      /*
+      * FIXME Переменные должны быть объявлены в теле класса.
+      *  В конструкторе они могут инициализироваться.
+      * */
       this.data = {};
       this.size = 0;
-  
+      /*
+      * FIXME сделай через forEach без явного вызова функции this.add(...);
+      *  */
       for (const item of initialArray) {
         this.add(item);
       }
     }
   
     add(item) {
+      /*
+      * FIXME старайся всегда использовать сторожевой пункт,
+      *   это уменьшает вложенность кода
+      *  */
       if (!this.has(item)) {
         this.data[item] = true;
         this.size++;
@@ -25,6 +36,7 @@ class MySet {
     }
   
     delete(item) {
+      // FIXME сторожевой пункт
       if (this.has(item)) {
         delete this.data[item];
         this.size--;

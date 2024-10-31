@@ -1,3 +1,4 @@
+// DONE
 function shallowEquals(obj1, obj2) {
   
     const keys1 = Object.keys(obj1);

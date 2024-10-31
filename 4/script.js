@@ -1,3 +1,4 @@
+// FIXME для закрепления материала, сделай из чистой функции myMap, грязную функцию
 Array.prototype.myMap = function(callback) {
 
     const result = [];
