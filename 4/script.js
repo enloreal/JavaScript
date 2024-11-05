@@ -1,16 +1,15 @@
-// FIXME для закрепления материала, сделай из чистой функции myMap, грязную функцию
+//REVIEW сделал функцию "грязной" посредством удаления копии и изменения исхоного массива
 Array.prototype.myMap = function(callback) {
 
-    const result = [];
-
     for (let i = 0; i < this.length; i++) {
-        result.push(callback(this[i], i, this));
+        this[i] = callback(this[i], i, this);
     }
 
-    return result;
+    return this;
 
 };
   
   const arr = [1, 2, 3];
   const doubled = arr.myMap(item => item * 2);
   console.log(doubled); // [2, 4, 6]
+  console.log(arr); // [2, 4, 6]
