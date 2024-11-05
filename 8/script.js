@@ -1,6 +1,6 @@
 function fromArrayToObj(arr) {
     let result = {};
-    // FIXME пустая строка
+
     arr.map(obj => {
         result[obj.name] = obj.value;
     })
@@ -15,15 +15,16 @@ console.log(fromArrayToObj([
 ]));
 
 
-// FIXME поправь форматирование в функции согласно предыдущих замечаний
+// REVIEW поправил форматирование, объявил переменную key в цикле
 function fromObjToArray(obj) {
     let arr = [];
-    // FIXME переменная key не объявлена
-    for (key in obj) {
+
+    for (const key in obj) {
         arr.push({name: key, value: obj[key]});
     }
-    return arr;
 
+    return arr;
 }
 
 console.log(fromObjToArray({width: 100, height: 50}));
+
