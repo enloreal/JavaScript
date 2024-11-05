@@ -1,68 +1,66 @@
-// FIXME добавь еще метод values в MySet
 class MySet {
-    constructor(initialArray) {
-      if (!Array.isArray(initialArray)) {
-          throw new TypeError(("MySet only accepts an array as input."));
-        // FIXME лишняя пустая строка
-      }
-      /*
-      * FIXME Переменные должны быть объявлены в теле класса.
-      *  В конструкторе они могут инициализироваться.
-      * */
-      this.data = {};
-      this.size = 0;
-      /*
-      * FIXME сделай через forEach без явного вызова функции this.add(...);
-      *  */
-      for (const item of initialArray) {
-        this.add(item);
-      }
-    }
+
+  // REVIEW Обьявил переменные в теле класса (вынес из конструктора)
+  data = {};
+  size = 0;  
   
-    add(item) {
-      /*
-      * FIXME старайся всегда использовать сторожевой пункт,
-      *   это уменьшает вложенность кода
-      *  */
-      if (!this.has(item)) {
-        this.data[item] = true;
-        this.size++;
-      }
-      return this;
+  constructor(initialArray) {
+    if (!Array.isArray(initialArray)) {
+      throw new TypeError("MySet only accepts an array as input.");
     }
-  
-    has(item) {
-      return this.data.hasOwnProperty(item);
-    }
-  
-    delete(item) {
-      // FIXME сторожевой пункт
-      if (this.has(item)) {
-        delete this.data[item];
-        this.size--;
-        return true;
-      }
-      return false;
-    }
-  
-    clear() {
-      this.data = {};
-      this.size = 0;
-    }
+
+    // REVIEW переделал в forEach
+    initialArray.forEach(item => this.add(item));
   }
-  
-  
-  const mySet = new MySet([1,2,3,4]);
-  console.log(mySet); // MySet { data: { '0': true, '1': true, '2': true, '3': true }, size: 4 }
-  console.log(mySet.size); // 4
-  console.log(mySet.has(6)); // false
-  
-  mySet.add(4);
-  console.log(mySet); // MySet { data: { '0': true, '1': true, '2': true, '3': true, '4': true }, size: 5 }
-  
-  mySet.delete(2);
-  console.log(mySet); // MySet { data: { '0': true, '1': true, '3': true, '4': true }, size: 4 }
-  
-  mySet.clear();
-  console.log(mySet); // MySet { data: {}, size: 0 }
+
+  add(item) {
+    // REVIEW сторожевой пост
+    if (this.has(item)) return this;
+    this.data[item] = true;
+    this.size++;
+    return this;
+  }
+
+  has(item) {
+    return this.data.hasOwnProperty(item);
+  }
+
+  delete(item) {
+    // REVIEW сторожевой пост
+    if (!this.has(item)) return false;
+    delete this.data[item];
+    this.size--;
+    return true;
+  }
+
+  clear() {
+    this.data = {};
+    this.size = 0;
+  }
+
+  // REVIEW добавил метод values
+  values() {
+    return Object.keys(this.data);
+  }
+}
+
+const mySet = new MySet([1, 2, 3, 4]);
+console.log(mySet); // MySet { data: { '1': true, '2': true, '3': true, '4': true }, size: 4 }
+console.log(mySet.size); // 4
+console.log(mySet.has(6)); // false
+
+console.log(mySet.values()); // [ '1', '2', '3', '4' ]
+
+mySet.add(4);
+console.log(mySet); // MySet { data: { '1': true, '2': true, '3': true, '4': true }, size: 4 }
+
+mySet.add(5);
+console.log(mySet); // MySet { data: { '1': true, '2': true, '3': true, '4': true, '5': true }, size: 5 }
+
+mySet.delete(2);
+console.log(mySet); // MySet { data: { '1': true, '3': true, '4': true, '5': true }, size: 4 }
+
+mySet.clear();
+console.log(mySet); // MySet { data: {}, size: 0 }
+
   
