@@ -1,5 +1,5 @@
-// FIXME плохое решение, оно тебе не дает гарантии, что ты получишь именно форму с id form1
-let form = document.forms[0];
+// REVIEW изменил способ получения таблицы, чтобы точно получать именно её, с id form1
+let form = document.getElementById("form1");
 
 let fname = form.elements.fname;
 let lname = form.elements.lname;
