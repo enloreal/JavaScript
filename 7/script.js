@@ -1,6 +1,11 @@
 class MySet {
 
   // REVIEW Обьявил переменные в теле класса (вынес из конструктора)
+  /* FIXME хранить данные в формате {key:boolean} крайне не прагматично.
+  *   Текущая реализация не позволит передать в множество объект или массив.
+  *   Также метод values вернет строки, хотя в множество были добавлены числа.
+  *   Наиболее удачная структура хранения для множества является массив
+  * */
   data = {};
   size = 0;  
   
@@ -10,6 +15,7 @@ class MySet {
     }
 
     // REVIEW переделал в forEach
+    // README тут можно более декларативно написать initialArray.forEach(this.add);
     initialArray.forEach(item => this.add(item));
   }
 
@@ -49,6 +55,7 @@ console.log(mySet); // MySet { data: { '1': true, '2': true, '3': true, '4': tru
 console.log(mySet.size); // 4
 console.log(mySet.has(6)); // false
 
+// README добавлял числа, а получил строки
 console.log(mySet.values()); // [ '1', '2', '3', '4' ]
 
 mySet.add(4);

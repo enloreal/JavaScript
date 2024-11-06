@@ -1,3 +1,4 @@
+// DONE
 function fromArrayToObj(arr) {
     let result = {};
 

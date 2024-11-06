@@ -1,3 +1,4 @@
+// DONE
 const table = document.getElementById('sampleTable');
 
 // REVIEW теперь количество получаем динамически

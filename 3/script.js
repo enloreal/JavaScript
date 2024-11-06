@@ -1,3 +1,4 @@
+// DONE
 function setInObj(arr, value, obj) {
   const copyObj = {...obj};
   let current = copyObj;

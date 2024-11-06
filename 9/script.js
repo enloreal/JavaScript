@@ -1,3 +1,4 @@
+// DONE
 // REVIEW заменил стрелочную функцию на обычную, убрал лишнюю функцию внутри
 function asyncTimeout(timeout) {
     return new Promise(function(res) {

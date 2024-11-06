@@ -1,3 +1,4 @@
+// DONE
 // REVIEW изменил способ получения таблицы, чтобы точно получать именно её, с id form1
 let form = document.getElementById("form1");
 

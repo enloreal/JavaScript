@@ -4,6 +4,7 @@ const asyncTimeout = (timeout) => new Promise(res => {
   }, timeout);
 });
 
+// DONE
 // REVIEW сократил функцию, сделал через for/of
 async function promiseStack(arr) {
   for (const task of arr) {
